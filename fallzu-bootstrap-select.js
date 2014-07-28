@@ -2,7 +2,7 @@
     "use strict";
 
     $.fn.fallzuSelectpicker = function(devOption) {
-        var render = function(el, name, template) {
+        var skinRender = function(el, name, template) {
             el.after(
                 '<div class="dropdown fallzu-select-dropdown" data-name="' + name + '">' +
                     '<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">' +
@@ -62,7 +62,7 @@
 
                 });
 
-                render(el, elName, template);
+                skinRender(el, elName, template);
                 el.hide();
 
                 // Binding event
