@@ -14,6 +14,21 @@
             );
         };
 
+        var templateRender = function(el, labelStr, hrStr) {
+            labelStr = (labelStr === undefined) ? ('') : (labelStr);
+            hrStr = (hrStr === undefined) ? ('') : (hrStr);
+
+            var template =
+                '<li class="fallzu-select-li">' +
+                    labelStr +
+                    '<a class="fallzu-select-option" data-val="' + el.val() + '" href="#">' +
+                        el.text() +
+                    '</a>' +
+                    hrStr +
+                '</li>';
+            return template;
+        };
+
         $(this).each(function() {
             var el = $(this);
 
@@ -41,23 +56,11 @@
                                             ? ('<div class="div-contain"><div class="divider"></div></div>')
                                             : ('');
 
-                                template +=
-                                    '<li class="fallzu-select-li">' +
-                                        labelStr +
-                                        '<a class="fallzu-select-option" data-val="' + option.val() + '" href="#">' +
-                                            option.text() +
-                                        '</a>' +
-                                        hrStr +
-                                    '</li>';
+                                template += templateRender(option, labelStr, hrStr);
                             });
                         });
                     } else {
-                        template +=
-                            '<li class="fallzu-select-li">' +
-                                '<a class="fallzu-select-option" data-val="' + rootOption.val() + '" href="#">' +
-                                    rootOption.text() +
-                                '</a>' +
-                            '</li>';
+                        template += templateRender(rootOption);
                     }
 
                 });
