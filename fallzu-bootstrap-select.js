@@ -3,7 +3,7 @@
 
     $.fn.fallzuSelectpicker = function(devOption) {
         var el = $(this);
-        var render = function (name, template) {
+        var render = function(name, template) {
             el.after(
                 '<div class="dropdown fallzu-select-dropdown" data-name="' + name + '">' +
                     '<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">' +
