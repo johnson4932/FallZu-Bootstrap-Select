@@ -20,12 +20,15 @@
             var subtext = (el.data('subtext') === undefined)
                           ? ('')
                           : (' <small class="muted text-muted">' + el.data('subtext') + '</small>');
+            var subtextAttr = (el.data('subtext') === undefined)
+                              ? ('')
+                              : ('data-subtext="' + el.data('subtext') + '"');
             var group = (isGroup === true) ? ('opt') : ('');
 
             var template =
                 '<li class="fallzu-select-li">' +
                     labelStr +
-                    '<a class="fallzu-select-option ' + group + '" data-val="' + el.val() + '" data-subtext="' + el.data('subtext') + '" href="#">' +
+                    '<a class="fallzu-select-option ' + group + '" data-val="' + el.val() + '" ' + subtextAttr + ' href="#">' +
                         el.text() + subtext +
                     '</a>' +
                     hrStr +
@@ -82,7 +85,7 @@
                     // Without children element
                     var text = $(this).clone().children().remove().end().text();
                     var subtext = $(this).data('subtext');
-                    var subtextStr = (subtext === 'undefined')
+                    var subtextStr = (subtext === undefined)
                                     ? ('')
                                     : (' <small class="muted text-muted">' + subtext + '</small>');
 
