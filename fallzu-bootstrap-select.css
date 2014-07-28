@@ -1,0 +1,13 @@
+.fallzu-select-dropdown .dropdown-toggle .caret {
+    margin-top: 10px;
+}
+
+.fallzu-select-dropdown .dropdown-menu li a {
+    display: block;
+    padding-top: 0;
+}
+
+.fallzu-select-dropdown .dropdown-menu li a:hover {
+    background: #0088CC;
+    color: #FFF;
+}
