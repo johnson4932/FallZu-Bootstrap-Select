@@ -11,3 +11,11 @@
     background: #0088CC;
     color: #FFF;
 }
+
+.fallzu-select-dropdown .dropdown-menu li dt {
+    padding-left: 20px;
+}
+
+.fallzu-select-dropdown .dropdown-menu li a.opt {
+    padding-left: 40px;
+}

@@ -14,17 +14,18 @@
             );
         };
 
-        var templateRender = function(el, labelStr, hrStr) {
+        var templateRender = function(el, labelStr, hrStr, isGroup) {
             var labelStr = (labelStr === undefined) ? ('') : (labelStr);
             var hrStr = (hrStr === undefined) ? ('') : (hrStr);
             var subtext = (el.data('subtext') === undefined)
                           ? ('')
                           : (' <small class="muted text-muted">' + el.data('subtext') + '</small>');
+            var group = (isGroup === true) ? ('opt') : ('');
 
             var template =
                 '<li class="fallzu-select-li">' +
                     labelStr +
-                    '<a class="fallzu-select-option" data-val="' + el.val() + '" data-subtext="' + el.data('subtext') + '" href="#">' +
+                    '<a class="fallzu-select-option ' + group + '" data-val="' + el.val() + '" data-subtext="' + el.data('subtext') + '" href="#">' +
                         el.text() + subtext +
                     '</a>' +
                     hrStr +
@@ -59,7 +60,7 @@
                                             ? ('<div class="div-contain"><div class="divider"></div></div>')
                                             : ('');
 
-                                template += templateRender(option, labelStr, hrStr);
+                                template += templateRender(option, labelStr, hrStr, true);
                             });
                         });
                     } else {
