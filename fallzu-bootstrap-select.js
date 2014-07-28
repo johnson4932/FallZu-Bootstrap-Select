@@ -40,7 +40,15 @@
             el.hide();
 
             // Binding event
-            //console.log(el.next('.fallzu-select-dropdown'));
+            var dropdownDiv = el.next('.fallzu-select-dropdown[data-name=' + elName + ']').first();
+            dropdownDiv.find('.fallzu-select-option').on('click', function(e) {
+                e.preventDefault();
+                var value = $(this).data('val');
+                var text = $(this).text();
+
+                dropdownDiv.find('.fallzu-select-text').text(text);
+                el.find('option[value=' + value + ']').prop('selected', true);
+            });
         }
 
         return el;
