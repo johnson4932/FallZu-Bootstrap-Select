@@ -3,9 +3,9 @@
 
     $.fn.fallzuSelectpicker = function(devOption) {
         var el = $(this);
-        var render = function (template) {
+        var render = function (name, template) {
             el.after(
-                '<div class="dropdown">' +
+                '<div class="dropdown fallzu-select-dropdown fallzu-select-' + name + '">' +
                     '<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">' +
                         '<span class="pull-left">未指定</span>' +
                         '<span class="caret"></span>' +
@@ -16,7 +16,8 @@
         };
 
         // Check select element
-        if (el.is('select')) {
+        var elName = el.attr('name');
+        if (el.is('select') && elName != undefined) {
             var template = '';
             el.children().each(function() {
                 var rootOption = $(this);
@@ -33,8 +34,11 @@
 
             });
 
-            render(template);
+            render(elName, template);
             el.hide();
+
+            // Binding event
+            //console.log(el.next('.fallzu-select-dropdown'));
         }
 
         return el;
