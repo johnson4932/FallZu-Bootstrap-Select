@@ -2,9 +2,9 @@
     "use strict";
 
     $.fn.fallzuSelectpicker = function(devOption) {
-        var root = $(this);
+        var el = $(this);
         var render = function (template) {
-            root.after(
+            el.after(
                 '<div class="dropdown">' +
                     '<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">' +
                         '<span class="pull-left">未指定</span>' +
@@ -16,23 +16,27 @@
         };
 
         // Check select element
-        if ($(this).is('select')) {
+        if (el.is('select')) {
             var template = '';
-            $(this).children().each(function() {
+            el.children().each(function() {
                 var rootOption = $(this);
 
                 // Check isGroup
                 if (rootOption.is('optgroup')) {
                     // Coming soon
                 } else {
-                    template += '<li><a href="#">' + rootOption.text() + '</a></li>';
+                    template +=
+                        '<li class="fallzu-select-li">' +
+                            '<a class="fallzu-select-option" href="#">' + rootOption.text() + '</a>' +
+                        '</li>';
                 }
 
             });
 
             render(template);
+            el.hide();
         }
 
-        return $(this);
+        return el;
     };
 })(jQuery);
