@@ -4,7 +4,7 @@
     $.fn.fallzuSelectpicker = function(devOption) {
         var skinRender = function(el, name, template) {
             el.after(
-                '<div class="dropdown fallzu-select-dropdown" data-name="' + name + '">' +
+                '<div class="btn-group fallzu-select-dropdown" data-name="' + name + '">' +
                     '<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">' +
                         '<span class="fallzu-select-text pull-left">未指定</span>' +
                         '<span class="caret pull-right"></span>' +
@@ -74,14 +74,6 @@
 
                 // Binding event
                 var dropdownDiv = el.next('.fallzu-select-dropdown[data-name=' + elName + ']').first();
-
-                // Button Click
-                dropdownDiv.find('.dropdown-toggle').on('click', function() {
-                    $(this).addClass('active');
-                })
-                .on('blur', function() {
-                    $(this).removeClass('active');
-                });
 
                 // Option Click
                 dropdownDiv.find('.fallzu-select-option').on('click', function(e) {
