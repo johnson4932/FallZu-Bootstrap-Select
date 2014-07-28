@@ -21,12 +21,36 @@
             var elName = el.attr('name');
             if (el.is('select') && elName != undefined) {
                 var template = '';
-                el.children().each(function() {
+                var seletLength = el.children().length;
+                el.children().each(function(optionIndex) {
                     var rootOption = $(this);
 
                     // Check isGroup
                     if (rootOption.is('optgroup')) {
-                        // Coming soon
+                        rootOption.each(function() {
+                            var optionGroup = $(this);
+                            var label = optionGroup.attr('label');
+                            var length = optionGroup.children().length;
+
+                            optionGroup.children().each(function(index) {
+                                var option = $(this);
+                                // Label
+                                var labelStr = (index === 0) ? ('<dt><span>' + label + '</span></dt>') : ('');
+                                // hr line
+                                var hrStr = (index === length - 1 && optionIndex != seletLength - 1)
+                                            ? ('<div class="div-contain"><div class="divider"></div></div>')
+                                            : ('');
+
+                                template +=
+                                    '<li class="fallzu-select-li">' +
+                                        labelStr +
+                                        '<a class="fallzu-select-option" data-val="' + option.val() + '" href="#">' +
+                                            option.text() +
+                                        '</a>' +
+                                        hrStr +
+                                    '</li>';
+                            });
+                        });
                     } else {
                         template +=
                             '<li class="fallzu-select-li">' +
