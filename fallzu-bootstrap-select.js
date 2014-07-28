@@ -67,6 +67,16 @@
 
                 // Binding event
                 var dropdownDiv = el.next('.fallzu-select-dropdown[data-name=' + elName + ']').first();
+
+                // Button Click
+                dropdownDiv.find('.dropdown-toggle').on('click', function() {
+                    $(this).addClass('active');
+                })
+                .on('blur', function() {
+                    $(this).removeClass('active');
+                });
+
+                // Option Click
                 dropdownDiv.find('.fallzu-select-option').on('click', function(e) {
                     e.preventDefault();
                     var value = $(this).data('val');
