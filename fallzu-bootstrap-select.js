@@ -28,7 +28,9 @@
                 } else {
                     template +=
                         '<li class="fallzu-select-li">' +
-                            '<a class="fallzu-select-option" href="#">' + rootOption.text() + '</a>' +
+                            '<a class="fallzu-select-option" data-val="' + rootOption.val() + '" href="#">' +
+                                rootOption.text() +
+                            '</a>' +
                         '</li>';
                 }
 
