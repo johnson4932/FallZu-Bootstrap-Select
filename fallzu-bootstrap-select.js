@@ -15,14 +15,17 @@
         };
 
         var templateRender = function(el, labelStr, hrStr) {
-            labelStr = (labelStr === undefined) ? ('') : (labelStr);
-            hrStr = (hrStr === undefined) ? ('') : (hrStr);
+            var labelStr = (labelStr === undefined) ? ('') : (labelStr);
+            var hrStr = (hrStr === undefined) ? ('') : (hrStr);
+            var subtext = (el.data('subtext') === undefined)
+                          ? ('')
+                          : (' <small class="muted text-muted">' + el.data('subtext') + '</small>');
 
             var template =
                 '<li class="fallzu-select-li">' +
                     labelStr +
-                    '<a class="fallzu-select-option" data-val="' + el.val() + '" href="#">' +
-                        el.text() +
+                    '<a class="fallzu-select-option" data-val="' + el.val() + '" data-subtext="' + el.data('subtext') + '" href="#">' +
+                        el.text() + subtext +
                     '</a>' +
                     hrStr +
                 '</li>';
@@ -83,9 +86,14 @@
                 dropdownDiv.find('.fallzu-select-option').on('click', function(e) {
                     e.preventDefault();
                     var value = $(this).data('val');
-                    var text = $(this).text();
+                    // Without children element
+                    var text = $(this).clone().children().remove().end().text();
+                    var subtext = $(this).data('subtext');
+                    var subtextStr = (subtext === 'undefined')
+                                    ? ('')
+                                    : (' <small class="muted text-muted">' + subtext + '</small>');
 
-                    dropdownDiv.find('.fallzu-select-text').text(text);
+                    dropdownDiv.find('.fallzu-select-text').html(text + subtextStr);
                     el.find('option[value=' + value + ']').prop('selected', true);
                 });
             }
