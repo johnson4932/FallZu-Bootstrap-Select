@@ -1,7 +1,11 @@
 (function($) {
     "use strict";
 
+    var defaultOption = {
+        multiple: false
+    };
     $.fn.fallzuSelectpicker = function(devOption) {
+        var options = $.extend(defaultOptions, devOptions);
         var skinRender = function(el, name, template) {
             el.after(
                 '<div class="btn-group fallzu-select-dropdown" data-name="' + name + '">' +
