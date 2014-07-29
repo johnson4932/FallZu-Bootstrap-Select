@@ -1,17 +1,19 @@
 .fallzu-select-dropdown .dropdown-toggle {
     background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    width: 200px;
 }
 
 .fallzu-select-dropdown .dropdown-toggle .caret {
     margin: 10px 0 0 10px;
 }
 
-.fallzu-select-dropdown .dropdown-menu li a {
+.fallzu-select-dropdown .dropdown-menu li .fallzu-select-option {
     display: block;
-    height: 25px;
+    overflow: hidden;
+    min-height: 25px;
 }
 
-.fallzu-select-dropdown .dropdown-menu li a:hover, .fallzu-select-dropdown .dropdown-menu .fallzu-option-active {
+.fallzu-select-dropdown .fallzu-select-option:hover, .fallzu-select-dropdown .fallzu-option-active {
     background: #0088CC;
     color: #FFF;
 }
@@ -25,8 +27,11 @@
     float: right;
 }
 
-.fallzu-select-dropdown .dropdown-menu .fallzu-option-ok:after {
-    clear: both;
+.fallzu-select-dropdown .dropdown-menu .fallzu-option-img {
+    display: block;
+    float: right;
+    width: 50px;
+    height: 50px;
 }
 
 .fallzu-select-dropdown .dropdown-menu .fallzu-option-active .fallzu-option-ok {
