@@ -4,12 +4,25 @@
 
 .fallzu-select-dropdown .dropdown-menu li a {
     display: block;
-    padding-top: 0;
+    height: 25px;
 }
 
 .fallzu-select-dropdown .dropdown-menu li a:hover {
     background: #0088CC;
     color: #FFF;
+}
+
+.fallzu-select-dropdown .dropdown-menu .fallzu-option-text {
+    float: left;
+}
+
+.fallzu-select-dropdown .dropdown-menu .fallzu-option-ok {
+    display: none;
+    float: right;
+}
+
+.fallzu-select-dropdown .dropdown-menu .fallzu-option-ok:after {
+    clear: both;
 }
 
 .fallzu-select-dropdown .dropdown-menu li dt {

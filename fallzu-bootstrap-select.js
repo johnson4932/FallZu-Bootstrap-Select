@@ -33,7 +33,8 @@
                 '<li class="fallzu-select-li">' +
                     labelStr +
                     '<a class="fallzu-select-option ' + group + '" data-val="' + el.val() + '" ' + subtextAttr + ' href="#">' +
-                        el.text() + subtext +
+                        '<span class="fallzu-option-text">' + el.text() + subtext + '</span>' +
+                        '<i class="glyphicon glyphicon-ok fallzu-option-ok"></i>' +
                     '</a>' +
                     hrStr +
                 '</li>';
@@ -87,7 +88,7 @@
                     e.preventDefault();
                     var value = $(this).data('val');
                     // Without children element
-                    var text = $(this).clone().children().remove().end().text();
+                    var text = $(this).find('.fallzu-option-text').clone().children().remove().end().text();
                     var subtext = $(this).data('subtext');
                     var subtextStr = (subtext === undefined)
                                     ? ('')
@@ -106,7 +107,6 @@
                     } else {
                         dropdownDiv.find('.fallzu-select-text').html(text + subtextStr);
                         el.find('option[value=' + value + ']').prop('selected', true);
-                        console.log(el.val());
                     }
                 });
             }
