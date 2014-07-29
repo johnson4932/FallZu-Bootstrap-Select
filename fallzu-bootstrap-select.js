@@ -49,9 +49,6 @@
         $(this).each(function() {
             var el = $(this);
 
-            // Reset
-            el.find('option:selected').prop('', false);
-
             // Check select element
             var elName = el.attr('name');
             if (el.is('select') && elName != undefined) {
@@ -132,6 +129,12 @@
                         dropdownDiv.find('.fallzu-select-text').html(text + subtextStr);
                         originalOption.prop('selected', true);
                     }
+                });
+
+                // Default update
+                el.find('option:selected').each(function() {
+                    var originalVal = $(this).val();
+                    dropdownDiv.find('.fallzu-select-option[data-val=' + originalVal + ']').click();
                 });
             }
         });
