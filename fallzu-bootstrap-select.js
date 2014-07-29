@@ -123,7 +123,7 @@
                         ul.find('.fallzu-option-active').removeClass('fallzu-option-active');
                         $(this).addClass('fallzu-option-active');
                         dropdownDiv.find('.fallzu-select-text').html(text + subtextStr);
-                        el.find('option[value=' + value + ']').prop('selected', true);
+                        originalOption.prop('selected', true);
                     }
                 });
             }
