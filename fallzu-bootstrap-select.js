@@ -1,10 +1,10 @@
 (function($) {
     "use strict";
 
-    var defaultOption = {
+    var defaultOptions = {
         multiple: false
     };
-    $.fn.fallzuSelectpicker = function(devOption) {
+    $.fn.fallzuSelectpicker = function(devOptions) {
         var options = $.extend(defaultOptions, devOptions);
         var skinRender = function(el, name, template) {
             el.after(
