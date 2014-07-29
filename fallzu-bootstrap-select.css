@@ -7,7 +7,7 @@
     height: 25px;
 }
 
-.fallzu-select-dropdown .dropdown-menu li a:hover {
+.fallzu-select-dropdown .dropdown-menu li a:hover, .fallzu-select-dropdown .dropdown-menu .fallzu-option-active {
     background: #0088CC;
     color: #FFF;
 }
@@ -23,6 +23,10 @@
 
 .fallzu-select-dropdown .dropdown-menu .fallzu-option-ok:after {
     clear: both;
+}
+
+.fallzu-select-dropdown .dropdown-menu .fallzu-option-active .fallzu-option-ok {
+    display: inline;
 }
 
 .fallzu-select-dropdown .dropdown-menu li dt {

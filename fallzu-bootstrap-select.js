@@ -44,6 +44,9 @@
         $(this).each(function() {
             var el = $(this);
 
+            // Reset
+            el.find('option:selected').prop('', false);
+
             // Check select element
             var elName = el.attr('name');
             if (el.is('select') && elName != undefined) {
@@ -86,7 +89,9 @@
                 // Option Click
                 dropdownDiv.find('.fallzu-select-option').on('click', function(e) {
                     e.preventDefault();
+                    var ul = $(this).parents('ul');
                     var value = $(this).data('val');
+                    var originalOption = el.find('option[value=' + value + ']');
                     // Without children element
                     var text = $(this).find('.fallzu-option-text').clone().children().remove().end().text();
                     var subtext = $(this).data('subtext');
@@ -96,15 +101,27 @@
 
                     // Multiple
                     if (el.prop('multiple')) {
-                        el.find('option[value=' + value + ']').prop('selected', true);
+                        var isSelect = originalOption.prop('selected');
 
-                        var arr = [];
+                        if (isSelect) {
+                            $(this).removeClass('fallzu-option-active');
+                            originalOption.prop('selected', false);
+                        } else {
+                            $(this).addClass('fallzu-option-active');
+                            originalOption.prop('selected', true);
+                        }
+
+                        var textArr = [];
                         el.find('option:selected').each(function() {
-                            arr.push($(this).val());
+                            textArr.push($(this).text());
                         });
-                        console.log(arr);
+
+                        dropdownDiv.find('.fallzu-select-text').html(textArr.join());
                         return false;
                     } else {
+                        originalOption.prop('selected', true);
+                        ul.find('.fallzu-option-active').removeClass('fallzu-option-active');
+                        $(this).addClass('fallzu-option-active');
                         dropdownDiv.find('.fallzu-select-text').html(text + subtextStr);
                         el.find('option[value=' + value + ']').prop('selected', true);
                     }
