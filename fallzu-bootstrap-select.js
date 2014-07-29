@@ -93,8 +93,21 @@
                                     ? ('')
                                     : (' <small class="muted text-muted">' + subtext + '</small>');
 
-                    dropdownDiv.find('.fallzu-select-text').html(text + subtextStr);
-                    el.find('option[value=' + value + ']').prop('selected', true);
+                    // Multiple
+                    if (el.prop('multiple')) {
+                        el.find('option[value=' + value + ']').prop('selected', true);
+
+                        var arr = [];
+                        el.find('option:selected').each(function() {
+                            arr.push($(this).val());
+                        });
+                        console.log(arr);
+                        return false;
+                    } else {
+                        dropdownDiv.find('.fallzu-select-text').html(text + subtextStr);
+                        el.find('option[value=' + value + ']').prop('selected', true);
+                        console.log(el.val());
+                    }
                 });
             }
         });
