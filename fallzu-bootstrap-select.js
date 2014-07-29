@@ -30,14 +30,14 @@
             var group = (isGroup === true) ? ('opt') : ('');
             var imgText = (el.data('img') === undefined)
                           ? ('')
-                          : ('<img class="fallzu-option-img" src="' + el.data('img') + '" alt="" >');
+                          : ('<img class="fallzu-option-img pull-right" src="' + el.data('img') + '" alt="" >');
 
             var template =
                 '<li class="fallzu-select-li">' +
                     labelStr +
                     '<a class="fallzu-select-option ' + group + '" data-val="' + el.val() + '" ' + subtextAttr + ' href="#">' +
-                        '<span class="fallzu-option-text">' + el.text() + subtext + '</span>' +
-                        '<i class="glyphicon glyphicon-ok fallzu-option-ok"></i>' +
+                        '<span class="fallzu-option-text pull-left">' + el.text() + subtext + '</span>' +
+                        '<i class="glyphicon glyphicon-ok fallzu-option-ok pull-right"></i>' +
                         imgText +
                     '</a>' +
                     hrStr +
