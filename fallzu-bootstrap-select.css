@@ -1,3 +1,7 @@
+.fallzu-select-dropdown .dropdown-toggle {
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+}
+
 .fallzu-select-dropdown .dropdown-toggle .caret {
     margin: 10px 0 0 10px;
 }
