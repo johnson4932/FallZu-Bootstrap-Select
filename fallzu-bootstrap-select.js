@@ -19,8 +19,8 @@
         };
 
         var templateRender = function(el, labelStr, hrStr, isGroup) {
-            var labelStr = (labelStr === undefined) ? ('') : (labelStr);
-            var hrStr = (hrStr === undefined) ? ('') : (hrStr);
+            var labelStr = labelStr || '';
+            var hrStr = hrStr || '';
             var subtext = (el.data('subtext') === undefined)
                           ? ('')
                           : (' <small class="muted text-muted">' + el.data('subtext') + '</small>');
