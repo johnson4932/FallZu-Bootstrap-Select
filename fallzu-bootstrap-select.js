@@ -116,7 +116,9 @@
                             textArr.push($(this).text());
                         });
 
-                        dropdownDiv.find('.fallzu-select-text').html(textArr.join());
+                        var title = (textArr.length == 0) ? (options.defaultText) : (textArr.join());
+
+                        dropdownDiv.find('.fallzu-select-text').html(title);
                         return false;
                     } else {
                         originalOption.prop('selected', true);
