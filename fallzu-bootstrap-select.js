@@ -28,17 +28,18 @@
                               ? ('')
                               : ('data-subtext="' + el.data('subtext') + '"');
             var group = (isGroup === true) ? ('opt') : ('');
+            var activeText = '<i class="glyphicon glyphicon-ok fallzu-option-ok pull-right"></i>';
             var imgText = (el.data('img') === undefined)
-                          ? ('')
+                          ? (undefined)
                           : ('<img class="fallzu-option-img pull-right" src="' + el.data('img') + '" alt="" >');
+            var rightText = imgText || activeText;
 
             var template =
                 '<li class="fallzu-select-li">' +
                     labelStr +
                     '<a class="fallzu-select-option ' + group + '" data-val="' + el.val() + '" ' + subtextAttr + ' href="#">' +
                         '<span class="fallzu-option-text pull-left">' + el.text() + subtext + '</span>' +
-                        '<i class="glyphicon glyphicon-ok fallzu-option-ok pull-right"></i>' +
-                        imgText +
+                        rightText +
                     '</a>' +
                     hrStr +
                 '</li>';
