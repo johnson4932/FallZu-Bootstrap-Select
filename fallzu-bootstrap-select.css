@@ -1,6 +1,6 @@
 .fallzu-select-dropdown .dropdown-toggle {
     background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-    width: 200px;
+    min-width: 100px;
 }
 
 .fallzu-select-dropdown .dropdown-toggle .caret {
