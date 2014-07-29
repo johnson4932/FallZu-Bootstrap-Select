@@ -142,6 +142,10 @@
                 if (width !== undefined) {
                     dropdownDiv.find('.fallzu-select-li').css('width', width);
                 }
+            } else {
+                // Error message
+                console.log('Please setting name attribute for <select> element');
+                console.log(el.html());
             }
         });
     };
