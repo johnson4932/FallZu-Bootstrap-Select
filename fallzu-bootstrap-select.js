@@ -136,6 +136,12 @@
                     var originalVal = $(this).val();
                     dropdownDiv.find('.fallzu-select-option[data-val=' + originalVal + ']').click();
                 });
+
+                // Width
+                var width = el.data('width');
+                if (width !== undefined) {
+                    dropdownDiv.find('.fallzu-select-li').css('width', width);
+                }
             }
         });
     };
