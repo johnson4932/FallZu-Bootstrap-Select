@@ -7,6 +7,10 @@
     margin: 10px 0 0 10px;
 }
 
+.fallzu-disbaled {
+    cursor: not-allowed;
+}
+
 .fallzu-select-dropdown .dropdown-menu li .fallzu-select-option {
     display: block;
     overflow: hidden;
