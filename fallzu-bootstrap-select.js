@@ -6,10 +6,12 @@
     };
     $.fn.fallzuSelectpicker = function(devOptions) {
         var options = $.extend(defaultOptions, devOptions);
-        var skinRender = function(el, name, template) {
+        var skinRender = function(el, name, template, dropdownDisabled) {
+            var dropdownDisabledClass = (dropdownDisabled) ? ('fallzu-disabled') : ('');
+            var buttonDisabled = (dropdownDisabled) ? ('disabled') : ('');
             el.after(
-                '<div class="btn-group fallzu-select-dropdown" data-name="' + name + '">' +
-                    '<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">' +
+                '<div class="btn-group fallzu-select-dropdown ' + dropdownDisabledClass + '" data-name="' + name + '">' +
+                    '<button class="btn btn-default dropdown-toggle ' + buttonDisabled + '" type="button" data-toggle="dropdown">' +
                         '<span class="fallzu-select-text pull-left">' + options.defaultText + '</span>' +
                         '<span class="caret pull-right"></span>' +
                     '</button>' +
@@ -82,7 +84,13 @@
 
                 });
 
-                skinRender(el, elName, template);
+                // Check Select Disbale
+                var dropdownDisabled = false;
+                if (el.prop('disabled')) {
+                    dropdownDisabled = true;
+                }
+
+                skinRender(el, elName, template, dropdownDisabled);
                 el.hide();
 
                 // Binding event
