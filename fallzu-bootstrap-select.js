@@ -1,9 +1,11 @@
 (function($) {
     "use strict";
 
+    // Default options
     var defaultOptions = {
         defaultText: 'Please Select...'
     };
+
     $.fn.fallzuSelectpicker = function(devOptions) {
         var options = $.extend(defaultOptions, devOptions);
         var skinRender = function(el, name, template, dropdownDisabled) {
@@ -86,7 +88,7 @@
 
                 // Check Select Disbale
                 var dropdownDisabled = false;
-                if (el.prop('disabled')) {
+                if (el.prop('disabled') || options.disable) {
                     dropdownDisabled = true;
                 }
 
