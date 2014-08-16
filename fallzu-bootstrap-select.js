@@ -148,7 +148,7 @@
                 });
 
                 // Width
-                var width = el.data('width');
+                var width = el.data('width') || options.width;
                 if (width !== undefined) {
                     dropdownDiv.find('.fallzu-select-li').css('width', width);
                 }
